@@ -38,21 +38,42 @@ execute if score #global ChunklockDifficulty matches 4.. run tag @s add ChunkImp
 # If gamemode is easy, do not scale
 execute if score #global ChunklockDifficulty matches ..1 run return 0
 
-# Overworld chunks get harder to unlock every 16 chunks
+# Overworld chunks get harder to unlock based on sqrt(unlocked/16)
 execute if dimension minecraft:overworld run scoreboard players operation #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks = #global ChunklockOverworldUnlockedChunks
-execute if dimension minecraft:overworld run scoreboard players operation #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks /= #16 Integers
+
+# --- INTSQRT( #overworldChunkItemMultiplier / 16 ) ---
+execute if dimension minecraft:overworld run scoreboard players operation #n Temp = #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks
+execute if dimension minecraft:overworld run scoreboard players operation #n Temp /= #16 Integers
+execute if dimension minecraft:overworld run function chunklock:math/isqrt_prepare
+execute if dimension minecraft:overworld run scoreboard players operation #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks = #root Temp
+# --- end INTSQRT ---
+
 execute if dimension minecraft:overworld run scoreboard players operation #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks += #1 Integers
 execute if dimension minecraft:overworld if score #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks matches 2.. run scoreboard players operation @s ChunklockChunkItemCount *= #overworldChunkItemMultiplier ChunklockTotalUnlockedChunks
 
-# Nether chunks get harder to unlock every 16 chunks
+# Nether chunks get harder to unlock based on sqrt(unlocked/16)
 execute if dimension minecraft:the_nether run scoreboard players operation #netherChunkItemMultiplier ChunklockTotalUnlockedChunks = #global ChunklockNetherUnlockedChunks
-execute if dimension minecraft:the_nether run scoreboard players operation #netherChunkItemMultiplier ChunklockTotalUnlockedChunks /= #16 Integers
+
+# --- INTSQRT( #netherChunkItemMultiplier / 16 ) ---
+execute if dimension minecraft:the_nether run scoreboard players operation #n Temp = #netherChunkItemMultiplier ChunklockTotalUnlockedChunks
+execute if dimension minecraft:the_nether run scoreboard players operation #n Temp /= #16 Integers
+execute if dimension minecraft:the_nether run function chunklock:math/isqrt_prepare
+execute if dimension minecraft:the_nether run scoreboard players operation #netherChunkItemMultiplier ChunklockTotalUnlockedChunks = #root Temp
+# --- end INTSQRT ---
+
 execute if dimension minecraft:the_nether run scoreboard players operation #netherChunkItemMultiplier ChunklockTotalUnlockedChunks += #1 Integers
 execute if dimension minecraft:the_nether if score #netherChunkItemMultiplier ChunklockTotalUnlockedChunks matches 2.. run scoreboard players operation @s ChunklockChunkItemCount *= #netherChunkItemMultiplier ChunklockTotalUnlockedChunks
 
-# End chunks get harder to unlock every 32 chunks
+# End chunks get harder to unlock based on sqrt(unlocked/32)
 execute if dimension minecraft:the_end run scoreboard players operation #endChunkItemMultiplier ChunklockTotalUnlockedChunks = #global ChunklockEndUnlockedChunks
-execute if dimension minecraft:the_end run scoreboard players operation #endChunkItemMultiplier ChunklockTotalUnlockedChunks /= #32 Integers
+
+# --- INTSQRT( #endChunkItemMultiplier / 32 ) ---
+execute if dimension minecraft:the_end run scoreboard players operation #n Temp = #endChunkItemMultiplier ChunklockTotalUnlockedChunks
+execute if dimension minecraft:the_end run scoreboard players operation #n Temp /= #32 Integers
+execute if dimension minecraft:the_end run function chunklock:math/isqrt_prepare
+execute if dimension minecraft:the_end run scoreboard players operation #endChunkItemMultiplier ChunklockTotalUnlockedChunks = #root Temp
+# --- end INTSQRT ---
+
 execute if dimension minecraft:the_end run scoreboard players operation #endChunkItemMultiplier ChunklockTotalUnlockedChunks += #1 Integers
 execute if dimension minecraft:the_end if score #endChunkItemMultiplier ChunklockTotalUnlockedChunks matches 2.. run scoreboard players operation @s ChunklockChunkItemCount *= #endChunkItemMultiplier ChunklockTotalUnlockedChunks
 

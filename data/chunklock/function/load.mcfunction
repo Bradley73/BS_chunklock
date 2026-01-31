@@ -11,6 +11,7 @@ scoreboard objectives add Temp dummy
 
 # Scoreboard containing integer literals for use in math operators
 scoreboard objectives add Integers dummy
+scoreboard players set #0 Integers 0
 scoreboard players set #1 Integers 1
 scoreboard players set #2 Integers 2
 scoreboard players set #4 Integers 4
