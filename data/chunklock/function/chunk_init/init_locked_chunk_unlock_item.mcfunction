@@ -91,4 +91,4 @@ execute if score #global ChunklockDifficulty matches 2 run return 1
 execute if score #global ChunklockDifficulty matches 3 run scoreboard players operation @s ChunklockChunkItemCount *= #4 Integers
 
 # Impossible difficulty
-execute if score #global ChunklockDifficulty matches 4.. run scoreboard players operation @s ChunklockChunkItemCount *= #16 Integers
+execute if score #global ChunklockDifficulty matches 4.. run scoreboard players operation @s ChunklockChunkItemCount *= #8 Integers

@@ -1,1 +1,1 @@
-
+- Scaled difficulty based on SQRT of chunks unlocked for more balanced area progression
