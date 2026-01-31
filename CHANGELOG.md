@@ -1,3 +1,4 @@
 - Scaled difficulty based on SQRT of chunks unlocked for more balanced area progression
 - Changed impossible scaling to x8 from x16. May need to consider early game impact (minimum requirements)
 - lilypads are rarer as a requirement for swamps. Witch loot now has a higher weighting.
+- Magma cream in nether waste can no longer be double
