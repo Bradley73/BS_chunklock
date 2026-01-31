@@ -1,0 +1,10 @@
+# Shows a message to the calling player that allows them to set the difficulty of Chunklock
+
+execute if score #global ChunklockTotalUnlockedChunks matches 1.. run tellraw @s [{"text":"You can't change Chunklock's difficulty after unlocking your first chunk. ","color":"red"},{"text":"Click Here","color":"red","bold":true,"hover_event":{"action":"show_text","value":[{"text":"Reset Chunklock (Resets every loaded chunk)","color":"red"}]},"click_event":{"action":"run_command","command":"/function chunklock:utils/reset"}},{"text":" to fully reset all chunks.","color":"white"}]
+execute if score #global ChunklockTotalUnlockedChunks matches 1.. run return 0
+
+tellraw @s [{"text":"Select Chunklock's Difficulty!","color":"gold","bold":true}, {"text":" Choose wisely. You won't be able to change your mind after you unlock your first chunk.","color":"white","bold":false,"italic":true}]
+tellraw @s [{"text":"- Easy","color":"white","hover_event":{"action":"show_text","value":[{"text":"Chunk unlock requirements will never get harder. Good for beginngers to Chunklock mode!"}]},"click_event":{"action":"run_command","command":"/function chunklock:chunk_difficulty/set_difficulty_easy"}}]
+tellraw @s [{"text":"- Normal (recommended)","color":"aqua","hover_event":{"action":"show_text","value":[{"text":"The classic Chunklock experience."}]},"click_event":{"action":"run_command","command":"/function chunklock:chunk_difficulty/set_difficulty_normal"}}]
+tellraw @s [{"text":"- Hard","color":"yellow","hover_event":{"action":"show_text","value":[{"text":"Chunk unlock requirements will scale twice as quickly as Normal mode. You may have to get creative."}]},"click_event":{"action":"run_command","command":"/function chunklock:chunk_difficulty/set_difficulty_hard"}}]
+tellraw @s [{"text":"- Impossible","color":"red","hover_event":{"action":"show_text","value":[{"text":"We have no idea if this is winnable."}]},"click_event":{"action":"run_command","command":"/function chunklock:chunk_difficulty/set_difficulty_impossible"}}]
