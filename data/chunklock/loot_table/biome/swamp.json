@@ -19,15 +19,12 @@
                 },
                 {
                     "type": "item",
-                    "weight": 70,
+                    "weight": 5,
                     "name": "minecraft:lily_pad",
                     "functions": [
                         {
                             "function": "set_count",
-                            "count": {
-                                "min": 1,
-                                "max": 2
-                            }
+                            "count": 1
                         }
                     ]
                 },
@@ -44,7 +41,7 @@
                 },
                 {
                     "type": "loot_table",
-                    "weight": 10,
+                    "weight": 50,
                     "value": "chunklock:generic/entity/witch",
                     "functions": [
                         {
@@ -60,21 +57,21 @@
                     "functions": [
                         {
                             "function": "set_count",
-                            "count": 1
+                            "count": {
+                                "min": 1,
+                                "max": 2
+                            }
                         }
                     ]
                 },
                 {
                     "type": "item",
-                    "weight": 5,
+                    "weight": 10,
                     "name": "minecraft:blue_orchid",
                     "functions": [
                         {
                             "function": "set_count",
-                            "count": {
-                                "min": 1,
-                                "max": 2
-                            }
+                            "count": 1
                         }
                     ]
                 },
@@ -91,7 +88,7 @@
                 },
                 {
                     "type": "loot_table",
-                    "weight": 10,
+                    "weight": 5,
                     "value": "chunklock:generic/activity/fishing",
                     "functions": [
                         {
