@@ -3,7 +3,7 @@
 ## About
 
 This project is a custom, modified version of the Chunklock datapack.
-It is not an official release by the original author.
+It is not an official release by the original author. Based on the original release 2.0.1 (suitable for minecraft 1.21.5).
 
 ## License
 
