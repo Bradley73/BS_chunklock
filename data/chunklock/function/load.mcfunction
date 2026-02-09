@@ -52,4 +52,4 @@ scoreboard objectives add ChunkHideUnlockTitle trigger
 scoreboard objectives add ChunkShowUnlockTitle trigger
 
 # Force players to spawn around a single block to prevent chunk
-gamerule spawnRadius 0
+gamerule respawn_radius 0
